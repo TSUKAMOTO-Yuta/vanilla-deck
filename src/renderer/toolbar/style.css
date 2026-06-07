@@ -1,0 +1,213 @@
+:root {
+  color-scheme: dark;
+  font-family:
+    system-ui, -apple-system, "Segoe UI", "Hiragino Sans", "Yu Gothic UI", "Yu Gothic", "Meiryo",
+    "Noto Sans CJK JP", "Noto Sans JP", sans-serif;
+  --bg: #0f1419;
+  --panel: #1b222c;
+  --panel-strong: rgba(255, 255, 255, 0.06);
+  --text: #e8eef5;
+  --muted: #8f9aa6;
+  --accent: #4aa8ff;
+  --accent-weak: rgba(74, 168, 255, 0.18);
+  --border: rgba(255, 255, 255, 0.2);
+  --border-strong: rgba(255, 255, 255, 0.32);
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html,
+body {
+  margin: 0;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  background: linear-gradient(180deg, #0e1318 0%, #0f1419 100%);
+  color: var(--text);
+}
+
+body {
+  display: flex;
+  align-items: stretch;
+  font-family: inherit;
+  line-height: 1.15;
+}
+
+.toolbar {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  align-items: stretch;
+  gap: 4px;
+  padding: 2px 6px;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+  background: rgba(21, 27, 34, 0.96);
+  backdrop-filter: blur(10px);
+  overflow: hidden;
+}
+.toolbar__top {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 6px;
+  min-width: 0;
+}
+
+.toolbar__middle {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  flex: 1 1 auto;
+  min-width: 0;
+  overflow: hidden;
+}
+.toolbar__top-actions {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  flex: 0 0 auto;
+}
+
+.brand {
+  display: flex;
+  flex-direction: column;
+  gap: 0;
+  min-width: 0;
+  flex: 0 1 auto;
+}
+.brand__name {
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 0;
+  white-space: nowrap;
+}
+
+.brand__meta {
+  font-size: 11px;
+  color: var(--text);
+  white-space: nowrap;
+}
+.toolbar__sections {
+  display: flex;
+  align-items: stretch;
+  gap: 6px;
+  flex: 1 1 auto;
+  justify-content: flex-end;
+  min-width: 0;
+  flex-wrap: nowrap;
+  overflow-x: auto;
+}
+.toolbar__sections--main {
+  padding-bottom: 2px;
+}
+.toolbar__sections--more {
+  justify-content: flex-end;
+}
+.toolbar[data-mode="main"] .toolbar__sections--more,
+.toolbar[data-mode="more"] .toolbar__sections--main {
+  display: none;
+}
+.toolbar__section {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: 6px;
+  padding: 3px 6px;
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  background: var(--panel-strong);
+  min-width: 0;
+  flex: 0 0 auto;
+}
+.toolbar__section--danger {
+  border-color: rgba(255, 122, 122, 0.45);
+}
+.toolbar__section-title {
+  flex: 0 0 auto;
+  min-width: 4em;
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 0.04em;
+  color: var(--text);
+  white-space: nowrap;
+}
+.toolbar__section-body {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  flex-wrap: nowrap;
+  min-width: 0;
+  flex: 1 1 auto;
+  position: relative;
+}
+.actions,
+.zoom,
+.width {
+  display: flex;
+  gap: 4px;
+  align-items: center;
+  flex: 0 0 auto;
+  min-width: 0;
+  flex-wrap: nowrap;
+}
+.width,
+.zoom {
+  padding-right: 4px;
+  border-right: 1px solid rgba(255, 255, 255, 0.18);
+  flex-shrink: 0;
+}
+.section-divider {
+  color: rgba(255, 255, 255, 0.45);
+  font-size: 11px;
+  user-select: none;
+}
+.tab-button {
+  min-width: 0;
+  width: 30px;
+  padding: 4px 0;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+}
+.tab-button__icon {
+  font-size: 16px;
+  line-height: 1;
+}
+#zoomText {
+  display: inline-block;
+  min-width: 2.8em;
+}
+#widthText {
+  display: inline-block;
+  min-width: 3.4em;
+}
+button {
+  appearance: none;
+  border: 1px solid rgba(255, 255, 255, 0.4);
+  border-radius: 6px;
+  background: linear-gradient(180deg, rgba(41, 52, 67, 1) 0%, rgba(26, 34, 45, 1) 100%);
+  color: var(--text);
+  padding: 4px 8px;
+  font: inherit;
+  font-size: 11px;
+  cursor: pointer;
+  min-width: 0;
+  line-height: 1.1;
+  min-height: 24px;
+  box-shadow:
+    inset 0 1px 0 rgba(255, 255, 255, 0.12),
+    inset 0 0 0 1px rgba(0, 0, 0, 0.2);
+}
+button:hover {
+  border-color: rgba(74, 168, 255, 0.95);
+  background: linear-gradient(180deg, rgba(50, 64, 83, 1) 0%, rgba(34, 43, 56, 1) 100%);
+}
+button:active {
+  transform: translateY(1px);
+}
+button:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}

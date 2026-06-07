@@ -1,0 +1,14 @@
+{
+  "extends": "./tsconfig.json",
+  "compilerOptions": {
+    "rootDir": "src",
+    "outDir": "dist",
+    "types": [],
+    "lib": ["ES2022", "DOM"]
+  },
+  "include": [
+    "src/shared/renderer-api.d.ts",
+    "src/renderer/toolbar/toolbar.mts",
+    "src/renderer/scrollbar/scrollbar.mts"
+  ]
+}

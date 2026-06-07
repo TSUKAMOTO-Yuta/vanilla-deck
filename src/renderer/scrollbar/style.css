@@ -1,0 +1,51 @@
+:root {
+  color-scheme: dark;
+  --track: #1c1f23;
+  --thumb: #737980;
+  --thumb-hover: #92989f;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html,
+body {
+  width: 100%;
+  height: 100%;
+  margin: 0;
+  overflow: hidden;
+  background: var(--track);
+}
+
+.scroll-viewport {
+  width: 100%;
+  height: 100%;
+  overflow-x: scroll;
+  overflow-y: hidden;
+}
+
+.scroll-content {
+  height: 1px;
+  min-width: 100%;
+}
+
+.scroll-viewport::-webkit-scrollbar {
+  height: 24px;
+}
+
+.scroll-viewport::-webkit-scrollbar-track {
+  background: var(--track);
+  border-top: 1px solid rgba(255, 255, 255, 0.06);
+}
+
+.scroll-viewport::-webkit-scrollbar-thumb {
+  min-width: 72px;
+  background: var(--thumb);
+  border: 5px solid var(--track);
+  border-radius: 12px;
+}
+
+.scroll-viewport::-webkit-scrollbar-thumb:hover {
+  background: var(--thumb-hover);
+}

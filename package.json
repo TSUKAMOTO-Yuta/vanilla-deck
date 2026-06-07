@@ -1,0 +1,31 @@
+{
+  "name": "vanilla-deck",
+  "version": "0.1.0",
+  "description": "Twitter browser columns with isolated sessions.",
+  "license": "SEE LICENSE IN LICENSE",
+  "main": "dist/main/index.js",
+  "type": "commonjs",
+  "engines": {
+    "node": ">=22.12.0 <23"
+  },
+  "config": {
+    "packageWinIgnore": "^(?:/(?:\\.agents|\\.codex|\\.github|\\.vscode|doc|node_modules|spec|scripts|out|AGENTS\\.md|README\\.md|package-lock\\.json|tsconfig(?:\\.renderer)?\\.json|\\.gitattributes|\\.gitignore)(?:$|/)|/src/.*\\.(?:ts|mts)$)"
+  },
+  "scripts": {
+    "setup": "npm ci && npm exec install-electron",
+    "icons": "node scripts/generate-icons.js",
+    "build": "node scripts/clean-build.js && tsc -p tsconfig.json && tsc -p tsconfig.renderer.json",
+    "format": "biome format --write .",
+    "start": "npm run build && electron .",
+    "package:win": "npm run build && electron-packager . vanilla-deck --platform=win32 --arch=x64 --icon=assets/icon.ico --out=out --overwrite --prune=true --asar \"--ignore=%npm_package_config_packageWinIgnore%\" && node scripts/harden-electron.js out/vanilla-deck-win32-x64/vanilla-deck.exe",
+    "check": "biome check . && tsc -p tsconfig.json --noEmit && tsc -p tsconfig.renderer.json --noEmit"
+  },
+  "devDependencies": {
+    "@biomejs/biome": "^2.4.16",
+    "@electron/fuses": "^2.1.2",
+    "@electron/packager": "^20.0.1",
+    "@types/node": "^25.9.2",
+    "electron": "^42.3.3",
+    "typescript": "^6.0.3"
+  }
+}

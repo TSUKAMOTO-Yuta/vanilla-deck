@@ -1,0 +1,77 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta
+      http-equiv="Content-Security-Policy"
+      content="default-src 'none'; base-uri 'none'; form-action 'none'; style-src 'self'; script-src 'self'"
+    />
+    <title>vanilla-deck</title>
+    <link rel="stylesheet" href="./style.css" />
+  </head>
+  <body>
+    <header class="toolbar" data-mode="main">
+      <div class="toolbar__top">
+        <div class="brand">
+          <div class="brand__name">vanilla-deck</div>
+          <div class="brand__meta" id="statusText">Loading</div>
+        </div>
+        <div class="toolbar__middle">
+          <div class="toolbar__sections toolbar__sections--main" id="mainSections">
+            <section class="toolbar__section" aria-label="View">
+              <div class="toolbar__section-title">View</div>
+              <div class="toolbar__section-body">
+                <div class="width" aria-label="Column width">
+                  <button id="widthOutButton" type="button" aria-label="Decrease column width">←</button>
+                  <button id="widthResetButton" type="button" aria-label="Reset column width">
+                    <span id="widthText">420px</span>
+                  </button>
+                  <button id="widthInButton" type="button" aria-label="Increase column width">→</button>
+                </div>
+                <div class="section-divider" aria-hidden="true">|</div>
+                <div class="zoom" aria-label="Zoom level">
+                  <button id="zoomOutButton" type="button" aria-label="Zoom out">−</button>
+                  <button id="zoomResetButton" type="button" aria-label="Reset zoom">
+                    <span id="zoomText">100%</span>
+                  </button>
+                  <button id="zoomInButton" type="button" aria-label="Zoom in">＋</button>
+                </div>
+              </div>
+            </section>
+            <section class="toolbar__section" aria-label="Columns">
+              <div class="toolbar__section-title">Columns</div>
+              <div class="toolbar__section-body">
+                <button id="reloadButton" type="button" aria-label="Reload active column">↻</button>
+                <div class="section-divider" aria-hidden="true">|</div>
+                <div class="actions">
+                  <button id="moveColumnLeftButton" type="button" aria-label="Move active column left">←</button>
+                  <button id="moveColumnRightButton" type="button" aria-label="Move active column right">→</button>
+                  <button id="addColumnButton" type="button" aria-label="Add column">＋</button>
+                  <button id="removeColumnButton" type="button" aria-label="Remove column">−</button>
+                </div>
+              </div>
+            </section>
+          </div>
+          <div class="toolbar__sections toolbar__sections--more" id="moreSections">
+            <section class="toolbar__section toolbar__section--danger" aria-label="Session">
+              <div class="toolbar__section-title">Session</div>
+              <div class="toolbar__section-body">
+                <button id="clearCookiesButton" type="button" aria-label="Reset X session">
+                  Reset X session…
+                </button>
+              </div>
+            </section>
+          </div>
+        </div>
+        <div class="toolbar__top-actions">
+          <button id="moreToggleButton" type="button" class="tab-button" aria-pressed="false" aria-label="More">
+            <span aria-hidden="true" class="tab-button__icon">⋯</span>
+          </button>
+        </div>
+      </div>
+    </header>
+
+    <script type="module" src="./toolbar.mjs"></script>
+  </body>
+</html>

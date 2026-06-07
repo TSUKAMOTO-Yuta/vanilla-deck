@@ -1,0 +1,10 @@
+# OS/editor files
+.DS_Store
+.vscode/
+
+# Node / Electron
+node_modules/
+dist/
+out/
+npm-debug.log*
+*.log

@@ -1,0 +1,19 @@
+<!doctype html>
+<html lang="ja">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta
+      http-equiv="Content-Security-Policy"
+      content="default-src 'none'; base-uri 'none'; form-action 'none'; style-src 'self'; script-src 'self'"
+    />
+    <title>横スクロール</title>
+    <link rel="stylesheet" href="./style.css" />
+  </head>
+  <body>
+    <div class="scroll-viewport" id="scrollViewport" aria-label="カラムの横スクロール">
+      <div class="scroll-content" id="scrollContent"></div>
+    </div>
+    <script type="module" src="./scrollbar.mjs"></script>
+  </body>
+</html>
