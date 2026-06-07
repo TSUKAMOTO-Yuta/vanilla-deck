@@ -11,7 +11,7 @@ Windows ネイティブアプリです。
 
 ### 起動
 
-- [GitHub Releases](releases/latest) から最新の Windows ZIP をダウンロードして展開し、`vanilla-deck.exe` を起動します。
+- [GitHub Releases](https://github.com/TSUKAMOTO-Yuta/vanilla-deck/releases/latest) から最新の Windows ZIP をダウンロードして展開し、`vanilla-deck.exe` を起動します。
 
 ### 画面の見方
 
@@ -58,7 +58,7 @@ It does not use a custom API, scraping, auto-posting, or DOM injection into the 
 
 ### Launch
 
-- Download the latest Windows ZIP from [GitHub Releases](releases/latest), extract it, and launch `vanilla-deck.exe`.
+- Download the latest Windows ZIP from [GitHub Releases](https://github.com/TSUKAMOTO-Yuta/vanilla-deck/releases/latest), extract it, and launch `vanilla-deck.exe`.
 
 ### Screen guide
 
