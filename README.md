@@ -15,21 +15,21 @@ Windows ネイティブアプリです。
 
 ### 画面の見方
 
-- 右上の `More` から、あまり使わない操作をまとめて開けます。
 - `Columns 3 | Active 2nd` は、カラムが 3 つあり、左から 2 番目のカラムがアクティブだという意味です。
 - `View` の `- / 420px / +` で全カラムの幅をまとめて変えられます。
 - `View` の `- / 100% / +` で全カラムのズームをまとめて変えられます。
 - `Columns` の `↻` でアクティブカラムだけを再読み込みします。
 - `Columns` の `← / →` でアクティブカラムを 1 つずつ移動します。
-- `Reset X session…` で、保存された全カラムのデータを消して `x.com/home` からやり直します。実行前に確認ダイアログが出ます。
 - `＋` でカラムを追加し、`－` で現在のアクティブカラムを削除します。
+- 右上の `…` から、あまり使わない操作をまとめて開けます。
+  - `Reset X session…` で、保存された全カラムのデータを消して `x.com/home` からやり直します。実行前に確認ダイアログが出ます。
 - 下部のスクロールバーをドラッグすると、カラムを左右に移動できます。
 - 最後にクリックしたカラムがアクティブになります。
 - `F12` でアクティブカラムの DevTools を切り替えられます。
 
 ### ログインの挙動
 
-新しいカラムを追加すると、最後に使っていたカラムのログイン状態を引き継ぎます。空の新規カラムではないので、複数アカウントをそのまま使い始めやすくなっています。
+新しいカラムを追加すると、最後に使っていたカラムのログイン状態を引き継ぎます。空の新規カラムではないので、複数アカウントをそのまま使い始めやすくなっています。推奨セットアップ法として、初回立ち上げ時に、最初のカラムで使うアカウント全てログインしてからカラムを複製すると捗ります。
 
 ### 注意事項
 
@@ -62,14 +62,14 @@ It does not use a custom API, scraping, auto-posting, or DOM injection into the 
 
 ### Screen guide
 
-- `More` in the upper-right opens less-used actions.
 - `Columns 3 | Active 2nd` means there are three columns and the second one from the left is active.
 - In `View`, `- / 420px / +` changes the width of all columns together.
 - In `View`, `- / 100% / +` changes the zoom level of all columns together.
 - In `Columns`, `↻` reloads only the active column.
 - In `Columns`, `← / →` moves the active column one step at a time.
-- `Reset X session…` clears the saved data for all columns and starts over from `x.com/home`. A confirmation dialog appears before it runs.
 - `＋` adds a column, and `－` removes the currently active column.
+- `More` in the upper-right opens less-used actions.
+  - `Reset X session…` clears the saved data for all columns and starts over from `x.com/home`. A confirmation dialog appears before it runs.
 - Drag the bottom scrollbar to move left and right across the columns.
 - The last column you click becomes the active one.
 - Press `F12` to toggle DevTools for the active column.
@@ -77,6 +77,7 @@ It does not use a custom API, scraping, auto-posting, or DOM injection into the 
 ### Login behavior
 
 When you add a new column, it inherits the login state from the last-used column. It is not a blank column, so it is easy to start with multiple accounts already logged in.
+As a recommended first-time setup, log in to all accounts you plan to use in the first column, then duplicate that column.
 
 ### Notes
 
