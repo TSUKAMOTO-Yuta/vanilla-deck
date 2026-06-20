@@ -11,7 +11,7 @@ Windows ネイティブアプリです。
 
 ### 起動
 
-- [GitHub Releases](https://github.com/TSUKAMOTO-Yuta/vanilla-deck/releases/latest) から最新の Windows ZIP をダウンロードして展開し、`vanilla-deck.exe` を起動します。
+- [GitHub Releases](https://github.com/TSUKAMOTO-Yuta/vanilla-deck/releases/latest) から最新の Windows ZIP(vanilla-deck-win32-x64.zip)をダウンロードして展開し、`vanilla-deck.exe` を起動します。
 
 ### 画面の見方
 

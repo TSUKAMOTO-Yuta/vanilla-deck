@@ -1,5 +1,16 @@
 import path from 'node:path';
-import { app, type Cookie, type Session, shell, View, WebContentsView } from 'electron';
+import {
+  app,
+  type ContextMenuParams,
+  type Cookie,
+  clipboard,
+  Menu,
+  type MenuItemConstructorOptions,
+  type Session,
+  shell,
+  View,
+  WebContentsView,
+} from 'electron';
 import { type ColumnState, DEFAULT_START_URL, isAllowedColumnUrl } from './store';
 
 const ALLOWED_COOKIE_HOSTS = ['twitter.com', 'x.com'];
@@ -119,6 +130,9 @@ export class Columns {
     };
     webContents.on('will-navigate', (event, url) => limitNavigation(event, url));
     webContents.on('will-redirect', (event, url) => limitNavigation(event, url));
+    webContents.on('context-menu', (_event, params) => {
+      showColumnContextMenu(webContents, params);
+    });
     webContents.on('before-input-event', (event, input) => {
       if (input.type === 'keyDown' && input.key === 'F12') {
         event.preventDefault();
@@ -213,6 +227,46 @@ function openExternalHttps(value: string): void {
     void shell.openExternal(value).catch((error) => {
       console.error('Failed to open external URL:', error);
     });
+  });
+}
+
+function showColumnContextMenu(webContents: Electron.WebContents, params: ContextMenuParams): void {
+  const template: MenuItemConstructorOptions[] = [];
+
+  if (params.isEditable && params.editFlags.canPaste) {
+    template.push({
+      label: 'Paste',
+      click: () => webContents.paste(),
+    });
+  }
+
+  if (params.selectionText) {
+    template.push({
+      label: 'Copy',
+      click: () => clipboard.writeText(params.selectionText),
+    });
+  }
+
+  if (params.linkURL) {
+    template.push(
+      {
+        label: 'Open Link in Browser',
+        click: () => openExternalHttps(params.linkURL),
+      },
+      {
+        label: 'Copy Link Address',
+        click: () => clipboard.writeText(params.linkURL),
+      },
+    );
+  }
+
+  if (template.length === 0) {
+    return;
+  }
+
+  Menu.buildFromTemplate(template).popup({
+    x: params.x,
+    y: params.y,
   });
 }
 
