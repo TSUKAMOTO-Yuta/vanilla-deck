@@ -131,7 +131,7 @@ export class Columns {
     webContents.on('will-navigate', (event, url) => limitNavigation(event, url));
     webContents.on('will-redirect', (event, url) => limitNavigation(event, url));
     webContents.on('context-menu', (_event, params) => {
-      showColumnContextMenu(webContents, params);
+      showColumnContextMenu(view, webContents, params);
     });
     webContents.on('before-input-event', (event, input) => {
       if (input.type === 'keyDown' && input.key === 'F12') {
@@ -230,7 +230,11 @@ function openExternalHttps(value: string): void {
   });
 }
 
-function showColumnContextMenu(webContents: Electron.WebContents, params: ContextMenuParams): void {
+function showColumnContextMenu(
+  view: WebContentsView,
+  webContents: Electron.WebContents,
+  params: ContextMenuParams,
+): void {
   const template: MenuItemConstructorOptions[] = [];
 
   if (params.isEditable && params.editFlags.canPaste) {
@@ -264,9 +268,10 @@ function showColumnContextMenu(webContents: Electron.WebContents, params: Contex
     return;
   }
 
+  const bounds = view.getBounds();
   Menu.buildFromTemplate(template).popup({
-    x: params.x,
-    y: params.y,
+    x: bounds.x + params.x,
+    y: bounds.y + params.y,
   });
 }
 
